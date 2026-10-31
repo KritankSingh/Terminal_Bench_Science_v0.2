@@ -1,0 +1,7 @@
+# jobs/**
+# sample_task/**
+# tasks/**
+# repo_tests/**
+# specs/**
+# specs/.runs/**
+# .ruff_cache/**

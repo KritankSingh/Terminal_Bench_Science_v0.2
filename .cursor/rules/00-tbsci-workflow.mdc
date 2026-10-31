@@ -1,0 +1,9 @@
+---
+description: TB-Science workflow rules (always on)
+alwaysApply: true
+---
+Follow `AGENTS.md`. Five steps: `python3 scripts/tbsci.py seed <slug>` → build all task files →
+`tbsci.py check <slug>` → fill `authoring/<slug>/review.md` and run `tbsci.py review <slug>` →
+trials (only when `config/round.toml` says CONFIRMED) → `tbsci.py labels` / `package`.
+`MASTER_CHECKLIST_TBSCI.md` is frozen; never edit it. Never hand-type command output.
+A FAIL: fix the file and run the same command again.

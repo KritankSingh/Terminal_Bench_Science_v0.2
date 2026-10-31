@@ -1,0 +1,70 @@
+# Environment
+.env
+.env.*
+
+# Validation working state
+specs/.*.json
+tasks/*/.step2b-checksum
+tasks/*/.step2b-metrics.jsonl
+
+# Local task material (never publish)
+/tasks/
+/specs/
+/rubrics/
+/tb3-hard-tasks/
+/Task_Ready_To_Submit/
+/authoring/*/
+!/authoring/_templates/
+!/authoring/_templates/**
+/audit_*/
+/artifacts/
+/jobs/
+/evidence-*/
+/_void-*/
+/*.zip
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local generated artifacts
+tasks/*/trajectories/
+*.zip
+!default_template/*.zip
+
+# OS
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+/regrade-*/
+
+# TB 2.1 task trees relocated out of tasks/ (2026-09-22). They are task source and
+# live in the Terminal-Bench-2.1 workspace; the /tasks/ rule above exists so task
+# source is never published, and moving a directory does not change that.
+/_tb21-tasks-moved-out/
+
+# Local Oracle/NOP scratch runs and one-off probes.
+/phase1/
+/phase1.nohup
+/run_phase1.sh
+/check_phase_test.py
+/test_24bit_roundtrip.py
+
+# Deleted upstream in a8fe501; the files remain on disk locally. Ignore rather than
+# silently re-adding them on the next `git add -A`.
+/default_template/
+
+# Local round/gate console logs at the workspace root
+/*.log

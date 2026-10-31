@@ -1,0 +1,34 @@
+# Client-layer rules on top of MASTER_CHECKLIST_TBSCI.md (version 4, frozen).
+# These rules ADD checks. They never weaken or override a master check. Where a rule would
+# contradict the master, the master wins and the rule is marked "advisory" below.
+# Mechanical rules are run by scripts/v02_checks.py (inside `tbsci.py check`); judgment rules
+# are points of the review card (docs/V02_RULES.md).
+
+min_tests = 10            # owner rule: every task needs at least 10 independent tests
+correct_margin_pct = 10   # every correct method clears every bound by >= 10% (master #101)
+null_clearance = 1.1      # every null misses every bound by >= 1.1x (review point 15)
+
+max_cpus = 4              # upstream v0.2: CPU tasks fit a GitHub runner
+max_memory_mb = 16384
+
+# Strings that must never appear in shipped task files (client hygiene D1/D2/D4/D5).
+# The client's own regex was not available when this file was written; add it here when it is.
+hygiene_patterns = [
+  'Master\s*#\s*\d',
+  '\bMaster check',
+  '\bAppendix [A-D]\b',
+  'authoring/',
+  '\b[Ss]tep ?[1-4][abc]\d?\b',
+  '-r\d{1,2}\b',
+  '\br20\d{6}[a-z]?\b',
+  '\bevidence-[a-z0-9-]+',
+  '\bgpt-?5[.-]?6|\bgpt56\b',
+  '\bdigest [0-9a-f]{8}\b',
+  'TODO|FIXME',
+]
+hygiene_extra_patterns = []   # paste the client's regex lines here when you get them
+
+# Upstream v0.2 items that conflict with the frozen master. Kept as advisory only.
+[advisory]
+readme_sections = "upstream v0.2 wants README.md sections; master #103 forbids README.md. Keep write-ups in authoring/<slug>/write-ups.md; emit a README only if the client checklist requires it."
+human_voice = "upstream may run an AI-authorship check; the master allows AI drafting. Write in an expert's plain voice anyway."

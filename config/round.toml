@@ -1,0 +1,22 @@
+# Trial round configuration (MASTER_CHECKLIST_TBSCI.md preamble: the trial model, its
+# reasoning setting and the shipping pass-rate band live in the round's own configuration,
+# never in the checklist or in any task file).
+#
+# status = "PARKED"     -> Step 3c is blocked. Build and review tasks up to Step 3b only.
+# status = "CONFIRMED"  -> the client has confirmed the checklist and the model below.
+#
+# Switch to CONFIRMED only after docs/CLIENT_CHECKLIST_DIFF.md is filled and every gap closed,
+# and after the engine model constants are switched (docs/GPT6_SWITCH.md).
+
+status = "PARKED"
+
+[trials]
+model = "gpt-6"                 # placeholder: exact model id from the client (e.g. "@openai/gpt-6...")
+reasoning_effort = "TBD"        # placeholder: the client's reasoning setting
+harness = "terminus-2"          # placeholder: confirm with the client
+n_trials = 5                    # fixed budget per task; more only when a revision is required
+
+[band]
+# A measured k/5 ships when band_min <= k <= band_max (owner rule, 2026-10-30).
+band_min = 0
+band_max = 3
